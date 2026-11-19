@@ -4,7 +4,7 @@
 
 **支持范围仅限 dsh-go；不保证其他客户端、桌面端、网页版或操作系统可用。** 本项目是社区插件，不是 dsh-go 官方组件，也不是独立运行的通用 MCP 客户端。
 
-当前版本：**0.5.3** · MIT License
+当前版本：**0.5.4** · MIT License
 
 ## 功能
 
@@ -27,6 +27,10 @@
 - 需要宿主提供 `dshGo`、`tools` 和 `credentials` 服务。
 - 不承诺未来 DSH/App 版本自动兼容。报告问题时请提供实际版本。
 
+## 插件市场
+
+市场提交使用 npm 精确版本 `local-mcp-manager@0.5.4`。条目通过市场检查并合并后，可在 dsh-go 插件市场搜索「MCP 管理器」安装。首次上架状态以市场仓库 PR 与实际目录为准；这不是官方插件，也不保证其他平台可用。
+
 ## 安装
 
 在 **dsh-go 当前连接的主机终端**执行。以下命令安装到默认原生插件目录；已存在同名目录时请先检查自己的安装，不要覆盖用户配置。
@@ -35,7 +39,7 @@
 DSH_DIR="${DSH_HOME:-$HOME/.dsh}"
 PLUGIN_DIR="$DSH_DIR/dsh-go/plugins/local-mcp-manager"
 
-git clone --branch v0.5.3 --depth 1 \
+git clone --branch v0.5.4 --depth 1 \
   https://github.com/Aouky7/dsh-go-mcp-manager.git "$PLUGIN_DIR"
 cd "$PLUGIN_DIR"
 npm ci --ignore-scripts
@@ -44,7 +48,7 @@ dsh plugin --profile web add "$PLUGIN_DIR"
 
 入口：**输入框加号 → MCP**，或 **全部功能 / 对话详情的插件页 → MCP 管理器**。
 
-这是指向安装目录的链接；使用期间不要删除或移动该目录。`private: true` 仅防止意外发布 npm 包，不影响从 GitHub 安装源码。
+这是指向安装目录的链接；使用期间不要删除或移动该目录。
 
 ### 更新已有安装
 
@@ -54,7 +58,7 @@ dsh plugin --profile web add "$PLUGIN_DIR"
 DSH_DIR="${DSH_HOME:-$HOME/.dsh}"
 cd "$DSH_DIR/dsh-go/plugins/local-mcp-manager"
 git fetch --tags origin
-git checkout v0.5.3
+git checkout v0.5.4
 npm ci --ignore-scripts
 ```
 

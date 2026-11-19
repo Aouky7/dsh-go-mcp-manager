@@ -1,7 +1,7 @@
 {
   "name": "local-mcp-manager",
-  "version": "0.5.3",
-  "private": true,
+  "version": "0.5.4",
+  "publishConfig": {"access": "public", "registry": "https://registry.npmjs.org"},
   "type": "module",
   "main": "lib/index.js",
   "description": "面向 dsh-go 原生界面的 MCP 管理适配插件，不保证其他平台可用。",
@@ -42,7 +42,7 @@
     "icon": "server",
     "contributes": {
       "composer.tools": [{"id": "mcp-open", "label": "MCP", "icon": "server", "panel": "mcp-manager"}],
-      "panels": [{"id": "mcp-manager", "title": "MCP 管理器", "icon": "server", "placement": ["plugin", "features", "session.tab", "chat.panel"], "presentation": "page"}]
+      "panels": [{"id": "mcp-manager", "title": "MCP 管理器", "icon": "server", "placement": ["features", "session.tab", "chat.panel"], "presentation": "page"}]
     }
   }
 }
