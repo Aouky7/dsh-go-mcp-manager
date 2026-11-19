@@ -1,0 +1,6 @@
+- insert:
+    - id: local-mcp-manager
+      name: local-mcp-manager
+      config:
+        autoConnect: true
+        credentials: []

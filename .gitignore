@@ -1,0 +1,14 @@
+node_modules/
+*.tgz
+*.zip
+*.log
+coverage/
+.env
+.env.*
+!.env.example
+.credentials*
+servers.json
+plugin-data/
+backups/
+deployment*.json
+.DS_Store

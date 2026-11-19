@@ -1,0 +1,48 @@
+{
+  "name": "local-mcp-manager",
+  "version": "0.5.3",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "description": "面向 dsh-go 原生界面的 MCP 管理适配插件，不保证其他平台可用。",
+  "license": "MIT",
+  "author": "Aouky7",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aouky7/dsh-go-mcp-manager.git"
+  },
+  "homepage": "https://github.com/Aouky7/dsh-go-mcp-manager#readme",
+  "bugs": "https://github.com/Aouky7/dsh-go-mcp-manager/issues",
+  "keywords": ["dsh-go", "mcp", "native-plugin", "mcp-manager"],
+  "files": ["lib/", "cordis.patch.yml", "README.md", "CHANGELOG.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:core": "node --test test/http.test.js test/runtime.test.js test/projection.test.js test/startup.test.js",
+    "test:native": "node --test test/manager.test.js test/native-headers.test.js test/optimization.test.js test/ui-redesign.test.js test/edge-fixes.test.js test/release-native.test.js"
+  },
+  "engines": {"node": ">=22.19.0", "dsh": ">=0.2.2-rc.1 <0.3.0-0"},
+  "dsh": {"bundle": {"patch": "./cordis.patch.yml"}},
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/schemastery": "~3.19.0",
+    "@deepseek-ai/dsh-mcp-client": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-credentials": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-subprocess": "0.2.2-rc.1"
+  },
+  "dependencies": {"@modelcontextprotocol/client": "2.3.0"},
+  "overrides": {
+    "@modelcontextprotocol/client": "$@modelcontextprotocol/client",
+    "zod": "4.6.6",
+    "undici": "8.12.2"
+  },
+  "dshGo": {
+    "v": 1,
+    "minApp": "1.1.0",
+    "title": {"zh": "MCP 管理器", "en": "MCP Manager"},
+    "icon": "server",
+    "contributes": {
+      "composer.tools": [{"id": "mcp-open", "label": "MCP", "icon": "server", "panel": "mcp-manager"}],
+      "panels": [{"id": "mcp-manager", "title": "MCP 管理器", "icon": "server", "placement": ["plugin", "features", "session.tab", "chat.panel"], "presentation": "page"}]
+    }
+  }
+}
